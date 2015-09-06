@@ -7,10 +7,14 @@ function Item(name, price, ozPer, ozUsed) {
 }
 
 var btn = $('.btn');
-var breakdownBtn = $('.breakdownBtn');
 var saveBtn = $('.saveBtn');
+var newBtn = $('.newBtn')
 
-btn.on('click', function() {
+
+btn.on('click', function () {
+  btn.attr("disabled","disabled");
+  newBtn.css({display: "block"})
+
   var drinkName = $('.drinkName').val();
   var nameA     = $('.nameA').val();
   var priceA    = $('.a').val();
@@ -40,11 +44,37 @@ btn.on('click', function() {
     '<li>The ' + ingredient2.name + ' cost is $' + ingredient2.cost + '.</li>' +
     '<li>The ' + ingredient3.name + ' cost is $' + ingredient3.cost + '.</li>';
 
-
-
   target.append(string);
   breakdownTarget.append(breakdownString);
   saveBtn.css({display: "block"})
+});
+
+newBtn.on('click', function () {
+
+  var target = $('.target');
+  var breakdownTarget = $('.breakdownTarget');
+  target.empty();
+  breakdownTarget.empty();
+
+  var drinkName = $('.drinkName').val('');
+  var nameA     = $('.nameA').val('');
+  var priceA    = $('.a').val('');
+  var ozPerA    = $('.b').val('');
+  var ozUsedA   = $('.c').val('');
+
+  var nameB     = $('.nameB').val('');
+  var priceB    = $('.d').val('');
+  var ozPerB    = $('.e').val('');
+  var ozUsedB   = $('.f').val('');
+
+  var nameC     = $('.nameC').val('');
+  var priceC    = $('.g').val('');
+  var ozPerC    = $('.h').val('');
+  var ozUsedC   = $('.i').val('');
+
+  btn.removeAttr("disabled");
+  newBtn.css({display: "none"})
+  saveBtn.css({display: "none"})
 
 
 });
