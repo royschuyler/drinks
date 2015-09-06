@@ -8,6 +8,7 @@ function Item(name, price, ozPer, ozUsed) {
 
 var btn = $('.btn');
 var breakdownBtn = $('.breakdownBtn');
+var saveBtn = $('.saveBtn');
 
 btn.on('click', function() {
   var drinkName = $('.drinkName').val();
@@ -35,14 +36,16 @@ btn.on('click', function() {
   var breakdownTarget = $('.breakdownTarget');
   var string = "It costs $" + cost + " to make this " + drinkName + ".";
   var breakdownString =
-    '<li>The ' + ingredient1.name + ' cost is ' + ingredient1.cost + '.</li>' +
-    '<li>The ' + ingredient2.name + ' cost is ' + ingredient2.cost + '.</li>' +
-    '<li>The ' + ingredient3.name + ' cost is ' + ingredient3.cost + '.</li>';
+    '<li>The ' + ingredient1.name + ' cost is $' + ingredient1.cost + '.</li>' +
+    '<li>The ' + ingredient2.name + ' cost is $' + ingredient2.cost + '.</li>' +
+    '<li>The ' + ingredient3.name + ' cost is $' + ingredient3.cost + '.</li>';
 
 
 
   target.append(string);
   breakdownTarget.append(breakdownString);
+  saveBtn.css({display: "block"})
+
 
 });
 
